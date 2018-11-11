@@ -71,11 +71,39 @@
 
 # 三、多线程
 
+### 3.1 创建线程的方式
+
+#### 3.1.2 利用`Callable`接口创建多线程
+
+**步骤**：
+
+1. 创建目标对象；
+   ``
+2. 创建执行任务；
+   `ExecutorService ser = Executors.newFixedThreadPool(1);`
+3. 提交执行；
+   `Future<Boolean> result1 = ser.submit(目标对象);`
+4. 获取结果；
+   `boolean r1 = result1.get();`
+5. 关闭服务；
+   `ser.shutdownNow();`
+
 
 
 ### #. 易遗忘的知识点
 
-1. Java中多线程用了**静态代理模式**，具体模式就是
+1. Java中多线程用了**静态代理模式**，具体模式就是：
+   - 定义两个角色：目标角色`You`和代理角色`WeddingCompany`；
+   - 上面的两个角色实现相同的接口`Marry`；
+   - 每个角色都继承`Marry`接口，并实现对应的方法：
+     - 针对`You`：根据具体的业务来写；
+     - 针对`WeddingCompany`：保存一个目标对象，并调用目标对象的实现方法；同时，在调用方法之前可以执行一些操作（**例如记录日志**），在调用方法之后也可以执行一些操作（**例如记录日志**）。
+
+
+
+
+
+<a href="./ReadMe.md">点击进入ReadMe.md</a>
 
 
 ### 
